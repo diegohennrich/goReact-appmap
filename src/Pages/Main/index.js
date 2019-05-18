@@ -2,7 +2,6 @@ import React, { Component, Fragment } from 'react'
 import MapGL, { Marker } from 'react-map-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import Barra from '../../components/Sidebar'
-import Card from '../../components/Card'
 class Main extends Component {
   state = {
     repos: [1, 2, 3, 4, 5],
@@ -72,11 +71,7 @@ class Main extends Component {
           </MapGL>
         </div>
 
-        <Barra>
-          {this.state.repos.map(i => (
-            <Card key={Math.random()} />
-          ))}
-        </Barra>
+        <Barra repos={this.state.repos} />
       </Fragment>
     )
   }
