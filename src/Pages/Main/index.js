@@ -1,9 +1,11 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import MapGL, { Marker } from 'react-map-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
-
+import Barra from '../../components/Sidebar'
+import Card from '../../components/Card'
 class Main extends Component {
   state = {
+    repos: [1, 2, 3, 4, 5],
     viewport: {
       width: window.innerWidth,
       height: window.innerHeight,
@@ -40,32 +42,42 @@ class Main extends Component {
 
   render() {
     return (
-      <MapGL
-        {...this.state.viewport}
-        onClick={this.handleMapClick}
-        mapStyle="mapbox://styles/mapbox/basic-v9"
-        mapboxApiAccessToken={
-          'pk.eyJ1IjoiZGllZ29oZW5ucmljaCIsImEiOiJjanZzZzM0aTgwMXZlNDRwMXd4ZXp1amgyIn0.dsGfaX7hV51ruAHw5nyAgg'
-        }
-        onViewportChange={viewport => this.setState({ viewport })}
-      >
-        <Marker
-          latitude={-29.6620335}
-          longitude={-51.1679283}
-          onClick={this.handleMapClick}
-          captureClick={true}
-        >
-          <img
-            style={{
-              borderRadius: 100,
-              width: 48,
-              height: 48
-            }}
-            src="https://avatars2.githubusercontent.com/u/2254731?v=4"
-            alt="user"
-          />
-        </Marker>
-      </MapGL>
+      <Fragment>
+        <div className="map">
+          <MapGL
+            {...this.state.viewport}
+            onClick={this.handleMapClick}
+            mapStyle="mapbox://styles/mapbox/basic-v9"
+            mapboxApiAccessToken={
+              'pk.eyJ1IjoiZGllZ29oZW5ucmljaCIsImEiOiJjanZzZzM0aTgwMXZlNDRwMXd4ZXp1amgyIn0.dsGfaX7hV51ruAHw5nyAgg'
+            }
+            onViewportChange={viewport => this.setState({ viewport })}
+          >
+            <Marker
+              latitude={-29.6620335}
+              longitude={-51.1679283}
+              onClick={this.handleMapClick}
+              captureClick={true}
+            >
+              <img
+                style={{
+                  borderRadius: 100,
+                  width: 48,
+                  height: 48
+                }}
+                src="https://avatars2.githubusercontent.com/u/2254731?v=4"
+                alt="user"
+              />
+            </Marker>
+          </MapGL>
+        </div>
+
+        <Barra>
+          {this.state.repos.map(i => (
+            <Card key={Math.random()} />
+          ))}
+        </Barra>
+      </Fragment>
     )
   }
 }

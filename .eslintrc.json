@@ -5,8 +5,8 @@
     },
     "extends": "standard",
     "globals": {
-        "Atomics": "readable",
-        "SharedArrayBuffer": "readable"
+        "Atomics": "writable",
+        "SharedArrayBuffer": "writable"
     },
     "parserOptions": {
         "ecmaFeatures": {
