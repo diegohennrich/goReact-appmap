@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
 export const Sidebar = styled.div`
-  width: 300px;
+  width: 25%;
   display: flex;
   flex-direction: column;
   display: 1 auto;
-  height: 85%;
+  height: 94%;
   background: #fff;
   border-radius: 3px;
   position: absolute;
@@ -13,6 +13,7 @@ export const Sidebar = styled.div`
   margin: 15px;
   top: 0;
   box-shadow: 3px 3px 20px grey;
+  overflow: auto;
 
   ul {
     display: flex;
@@ -25,7 +26,7 @@ export const Sidebar = styled.div`
       display: flex;
       flex-direction: column;
       height: 70px;
-      width: 270px;
+      width: 90%;
       cursor: pointer;
       justify-content: center;
       padding: 15px 15px 0 15px;
